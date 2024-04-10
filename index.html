@@ -1,39 +1,82 @@
 <!DOCTYPE html>
 <html>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
+  <head>
     <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles">
+    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-</head>
+    <script type="module" src="scripts.js"></script>
+  </head>
 
-<body>
-    <header class="main-header">
-        <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container">
-        
-    </div>
-    <div class="card" style="display: none;">
-        <div class="card-content">
-            <h2>TV Show Title</h2>
-            <img src="" alt="TV Show Poster">
-            <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
-            </ul>
+  <body>
+    <header>
+      <div class="options">
+        <div class="button" data-filter="filterByYear">Filter By Year</div>
+        <div class="button" data-filter="filterByEpisode">
+          Filter By Episode
         </div>
-    </div>
-    <div class="footer">
-        <button onclick="quoteAlert();">
-            Get A Quote!
-        </button>
-        <button onclick="removeLastCard();">
-            Remove A Card!
-        </button>
-    </div>
-</body>
+        <div class="button" data-filter="filterByCategory">
+          Filter By Category
+        </div>
+        <div class="button" data-filter="filterByRating">Filter By Rating</div>
+      </div>
+    </header>
 
+    <div id="filterContainer" class="hide">
+      <h1 id="filterTitle">Filter By Year</h1>
+      <div id="filterByYear" class="hide filter">
+        <div id="yearRangeSelector" class="slider">
+          <div class="sliderCont">
+            <div id="startYear">Start Year: 2013</div>
+            <p>-</p>
+            <div id="endYear">End Year: 2023</div>
+          </div>
+
+          <div class="sliderCont">
+            <input type="range" id="startYearSlider" />
+            <input type="range" id="endYearSlider" />
+          </div>
+        </div>
+      </div>
+      <div id="filterByEpisode" class="slider hide filter">
+        <div id="episodeRangeSelector" class="slider">
+          <div class="sliderCont">
+            <div id="startEpisode">Start Year: 2013</div>
+            <p>-</p>
+            <div id="endEpisode">End Year: 2023</div>
+          </div>
+
+          <div class="sliderCont">
+            <input type="range" id="startEpisodeSlider" />
+            <input type="range" id="endEpisodeSlider" />
+          </div>
+        </div>
+      </div>
+      <div id="filterByCategory" class="grid-options hide filter">
+        <div class="button activebutton">All</div>
+        <div class="button">Random</div>
+        <div class="button">Action</div>
+        <div class="button">Drama</div>
+        <div class="button">Sad</div>
+      </div>
+      <div id="filterByRating" class="grid-options hide filter">
+        <div class="button activebutton">All</div>
+        <div class="button">Random</div>
+        <div class="button">Action</div>
+        <div class="button">Drama</div>
+        <div class="button">Sad</div>
+      </div>
+    </div>
+
+    <section class="main-sec">
+      <div class="mini-nav">
+        <h1>Explore The Top 250 Tv Shows</h1>
+        <p id="results">Results</p>
+        <div class="button" id="RESET">RESET</div>
+      </div>
+
+      <div id="card-container"></div>
+    </section>
+  </body>
 </html>
